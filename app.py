@@ -23,7 +23,7 @@ def predict():
     data = request.get_json(force=True)
     try:
         prediction = model.predict(data)
-        return jsonify({'predicted_price': round(prediction, 2)})
+        return jsonify({'predicted_price': round(float(prediction), 2)})
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
